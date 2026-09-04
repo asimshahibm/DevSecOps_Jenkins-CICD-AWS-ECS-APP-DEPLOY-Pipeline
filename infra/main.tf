@@ -23,9 +23,9 @@ resource "aws_iam_role" "execution" {
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [{
-      Effect = "Allow"
+      Effect    = "Allow"
       Principal = { Service = "ecs-tasks.amazonaws.com" }
-      Action = "sts:AssumeRole"
+      Action    = "sts:AssumeRole"
     }]
   })
 }
@@ -93,7 +93,7 @@ resource "aws_lb_listener" "app" {
   port              = 80
   protocol          = "HTTP"
   default_action {
-    type             = "forward"
+    type = "forward"
     forward {
       target_group {
         arn = aws_lb_target_group.app.arn
