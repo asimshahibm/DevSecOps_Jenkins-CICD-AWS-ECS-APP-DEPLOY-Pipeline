@@ -1,0 +1,9 @@
+.git
+.github
+Jenkinsfile
+.venv
+venv
+__pycache__
+*.pyc
+terraform.tfstate*
+.terraform

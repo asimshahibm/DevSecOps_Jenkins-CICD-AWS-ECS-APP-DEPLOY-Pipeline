@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devsecops-ecs-sample"
+version = "1.0.0"
+description = "Sample FastAPI service for AWS ECS DevSecOps deployment."
+authors = [{ name = "asimshahibm" }]
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1.0", "uvicorn[standard]>=0.30,<1.0"]
+
+[project.optional-dependencies]
+dev = ["httpx>=0.27,<1.0", "pytest>=8.0,<9.0", "ruff>=0.8,<1.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
